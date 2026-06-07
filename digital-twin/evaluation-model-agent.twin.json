@@ -1,0 +1,15 @@
+{
+  "twinId": "twin:evaluation-model-agent",
+  "twinType": "agent",
+  "sourceObjectId": "agent:evaluation-model-agent",
+  "modelVersion": "1.0.0",
+  "owner": "opensaaslabs/platform",
+  "currentState": "published",
+  "conformanceStatus": "passing",
+  "evidenceRefs": [
+    "agents/evaluation-agent.md"
+  ],
+  "eventRefs": [],
+  "lastObservedAt": "2026-06-07T00:00:00Z",
+  "lastReconciledAt": "2026-06-07T00:00:00Z"
+}
