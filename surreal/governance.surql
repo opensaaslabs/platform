@@ -1,0 +1,35 @@
+DEFINE TABLE anchor_totem SCHEMAFULL;
+DEFINE FIELD totemId ON anchor_totem TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD totemType ON anchor_totem TYPE string ASSERT $value = 'anchor';
+DEFINE FIELD owner ON anchor_totem TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD mission ON anchor_totem TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD principles ON anchor_totem TYPE array ASSERT array::len($value) > 0;
+DEFINE FIELD restraints ON anchor_totem TYPE array ASSERT array::len($value) > 0;
+DEFINE FIELD edgeWarnings ON anchor_totem TYPE array;
+DEFINE FIELD memoryRefs ON anchor_totem TYPE array;
+DEFINE FIELD authorityRefs ON anchor_totem TYPE array;
+DEFINE FIELD status ON anchor_totem TYPE string ASSERT $value IN ['active', 'review_required', 'stale', 'superseded', 'retired'];
+DEFINE FIELD lastReviewedAt ON anchor_totem TYPE datetime;
+DEFINE INDEX anchor_totem_id ON anchor_totem FIELDS totemId UNIQUE;
+
+DEFINE TABLE ip_compliance_check SCHEMAFULL;
+DEFINE FIELD artifactId ON ip_compliance_check TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD ipStatus ON ip_compliance_check TYPE string ASSERT $value IN ['original', 'licensed', 'public_domain', 'fair_use_reviewed', 'permission_granted', 'unknown'];
+DEFINE FIELD result ON ip_compliance_check TYPE string ASSERT $value IN ['allow', 'allow_with_attribution', 'rewrite_required', 'license_review_required', 'permission_required', 'block'];
+DEFINE FIELD notes ON ip_compliance_check TYPE option<string>;
+DEFINE FIELD checkedAt ON ip_compliance_check TYPE datetime;
+DEFINE INDEX ip_compliance_artifact ON ip_compliance_check FIELDS artifactId;
+
+DEFINE TABLE edge_exit SCHEMAFULL;
+DEFINE FIELD exitId ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD owner ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD intent ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD audience ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD evidenceRefs ON edge_exit TYPE array ASSERT array::len($value) > 0;
+DEFINE FIELD conformanceStatus ON edge_exit TYPE string ASSERT $value IN ['passing', 'warning', 'failing'];
+DEFINE FIELD policyStatus ON edge_exit TYPE string ASSERT $value IN ['allowed', 'requires_review', 'blocked'];
+DEFINE FIELD ipStatus ON edge_exit TYPE string ASSERT $value IN ['original', 'licensed', 'public_domain', 'fair_use_reviewed', 'permission_granted', 'unknown'];
+DEFINE FIELD traceId ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE FIELD timestamp ON edge_exit TYPE datetime;
+DEFINE FIELD correctionPath ON edge_exit TYPE string ASSERT string::len($value) > 0;
+DEFINE INDEX edge_exit_trace ON edge_exit FIELDS traceId;
