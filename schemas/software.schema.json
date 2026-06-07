@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Software",
+  "type": "object",
+  "required": ["id", "name", "vendor", "category", "useCases", "sourceReferences", "reviewedAt"],
+  "properties": {
+    "id": {"type":"string"},
+    "name": {"type":"string"},
+    "vendor": {"type":"string"},
+    "category": {"type":"string"},
+    "useCases": {"type":"array","minItems":1,"items":{"type":"string"}},
+    "sourceReferences": {"type":"array","minItems":1,"items":{"type":"string"}},
+    "reviewedAt": {"type":"string","format":"date-time"}
+  }
+}
