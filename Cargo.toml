@@ -1,0 +1,16 @@
+[package]
+name = "opensaaslabs-platform"
+version = "0.1.0"
+edition = "2021"
+description = "Rust enforcement core for OpenSaaSLabs platform governance, edge exits, and IP compliance."
+license = "UNLICENSED"
+
+[lib]
+name = "opensaaslabs_platform"
+path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
+
+auto = []
