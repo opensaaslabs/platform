@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IPComplianceCheck",
+  "type": "object",
+  "required": ["artifactId", "ipStatus", "result", "checkedAt"],
+  "properties": {
+    "artifactId": { "type": "string" },
+    "ipStatus": {
+      "enum": [
+        "original",
+        "licensed",
+        "public_domain",
+        "fair_use_reviewed",
+        "permission_granted",
+        "unknown"
+      ]
+    },
+    "result": {
+      "enum": [
+        "allow",
+        "allow_with_attribution",
+        "rewrite_required",
+        "license_review_required",
+        "permission_required",
+        "block"
+      ]
+    },
+    "notes": { "type": "string" },
+    "checkedAt": { "type": "string", "format": "date-time" }
+  }
+}
