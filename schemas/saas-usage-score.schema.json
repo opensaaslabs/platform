@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SaaSUsageScore",
+  "type": "object",
+  "required": [
+    "tenantId",
+    "softwareId",
+    "measurementPeriod",
+    "activation",
+    "engagement",
+    "retention",
+    "depth",
+    "breadth",
+    "valueRealization",
+    "governance",
+    "risk",
+    "score",
+    "evidenceIds",
+    "owner",
+    "computedAt",
+    "recommendedAction"
+  ],
+  "properties": {
+    "tenantId": {"type":"string"},
+    "softwareId": {"type":"string"},
+    "measurementPeriod": {"type":"string"},
+    "activation": {"type":"number","minimum":0,"maximum":100},
+    "engagement": {"type":"number","minimum":0,"maximum":100},
+    "retention": {"type":"number","minimum":0,"maximum":100},
+    "depth": {"type":"number","minimum":0,"maximum":100},
+    "breadth": {"type":"number","minimum":0,"maximum":100},
+    "valueRealization": {"type":"number","minimum":0,"maximum":100},
+    "governance": {"type":"number","minimum":0,"maximum":100},
+    "risk": {"type":"number","minimum":0,"maximum":100},
+    "score": {"type":"number","minimum":0,"maximum":100},
+    "evidenceIds": {"type":"array","minItems":1,"items":{"type":"string"}},
+    "owner": {"type":"string"},
+    "computedAt": {"type":"string","format":"date-time"},
+    "recommendedAction": {"type":"string"}
+  }
+}
