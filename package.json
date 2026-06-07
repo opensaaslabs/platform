@@ -1,0 +1,18 @@
+{
+  "name": "@opensaaslabs/platform",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Shared software adoption intelligence model, schemas, and conformance checks for OpenSaaSLabs.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "conformance": "npm run typecheck && npm run build"
+  },
+  "files": ["dist", "schemas", "architecture", "governance"],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
