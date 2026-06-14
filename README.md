@@ -44,6 +44,30 @@ There are thousands of software tools across CRM, ERP, HRMS, analytics, security
 
 Right software. Right stage. Right use case. Right maturity. Confident adoption.
 
+## Production Readiness
+
+This repository now uses a production-readiness gate:
+
+```text
+GitHub → CI validation → Review gate → Release gate → Published platform data model
+```
+
+Production readiness requires schemas, examples, governance, security, operations, release gates, and CI validation.
+
+Start here:
+
+- [`docs/production-readiness.md`](docs/production-readiness.md)
+- [`docs/release-gate.md`](docs/release-gate.md)
+- [`docs/security.md`](docs/security.md)
+- [`docs/operations.md`](docs/operations.md)
+- [`docs/governance.md`](docs/governance.md)
+
+Run locally:
+
+```bash
+node scripts/validate-json.js
+```
+
 ## Platform Role
 
 This repository owns the shared model used by both Community and Enterprise tiers:
@@ -92,8 +116,10 @@ playbooks/        Evaluation, adoption, implementation, and governance playbooks
 learning/         Learning paths and course links
 governance/       Contribution, review, quality, and trust policies
 examples/         Example profiles, recommendations, and adoption journeys
+scripts/          Local validation and production-readiness checks
+.github/          CI/CD workflows and release gates
 ```
 
 ## Status
 
-Bootstrap. This repository defines the initial platform foundation and shared data model.
+Bootstrap with production-readiness gates. This repository defines the initial platform foundation and shared data model.
