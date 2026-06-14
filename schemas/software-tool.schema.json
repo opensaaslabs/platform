@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opensaaslabs.org/schemas/software-tool.schema.json",
+  "title": "Software Tool",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "category", "description", "maturityFit"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "category": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "website": { "type": "string", "format": "uri" },
+    "license": { "type": "string" },
+    "deploymentModels": {
+      "type": "array",
+      "items": { "enum": ["saas", "self-hosted", "managed", "hybrid", "open-source"] },
+      "uniqueItems": true
+    },
+    "maturityFit": {
+      "type": "array",
+      "items": { "enum": ["individual", "startup", "smb", "mid-market", "enterprise", "public-sector", "education"] },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "useCases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string" },
+        "reviewStatus": { "enum": ["draft", "reviewed", "verified"] },
+        "lastReviewedAt": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}
