@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opensaaslabs.org/schemas/software-category.schema.json",
+  "title": "Software Category",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "description", "audiences"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "parentCategory": { "type": "string" },
+    "audiences": {
+      "type": "array",
+      "items": { "enum": ["individual", "startup", "smb", "mid-market", "enterprise", "public-sector", "education"] },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "commonUseCases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "maturitySignals": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
