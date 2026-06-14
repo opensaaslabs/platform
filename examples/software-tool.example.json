@@ -1,0 +1,16 @@
+{
+  "id": "example-crm",
+  "name": "Example CRM",
+  "category": "crm",
+  "description": "Example customer relationship management tool used to validate the OpenSaaSLabs software tool schema.",
+  "website": "https://example.com",
+  "license": "example",
+  "deploymentModels": ["saas"],
+  "maturityFit": ["smb", "mid-market"],
+  "useCases": ["manage-customer-relationships", "track-sales-pipeline"],
+  "trust": {
+    "source": "example",
+    "reviewStatus": "draft",
+    "lastReviewedAt": "2026-06-14"
+  }
+}
